@@ -1,28 +1,29 @@
 function convertToRoman(num) {
-  let obj = {
-    0: ["M", 1000],
-    1: ["D", 500],
-    2: ["C", 100],
-    3: ["L", 50],
-    4: ["X", 10],
-    5: ["V", 5],
-    6: ["I", 1],
-  };
+   const symbols = [
+    ['M', 1000],
+    ['D', 500],
+    ['C', 100],
+    ['L', 50],
+    ['X', 10],
+    ['V', 5],
+    ['I', 1]
+  ];
 
   let result = "";
-  for (let [symbol, value] of Object.entries(obj)) {
-    while (num >= value[1]) {
-      console.log(symbol, value, result);
-      result += value[0];
-      num -= value[1];
+
+  for (let [symbol, value] of symbols) {
+    while (num >= value) {
+      result += symbol;
+      num -= value;
     }
   }
-	result = result.replace("IIII", "IV")
-                 .replace("VIIII", "IX")
-                 .replace("XXXX", "XL")
-                 .replace("LXXXX", "XC")
+  result = result.replace("DCCCC", "CM")
                  .replace("CCCC", "CD")
-                 .replace("DCCCC", "CM");
+                 .replace("LXXXX", "XC")
+                 .replace("XXXX", "XL")
+                 .replace("VIIII", "IX")
+                 .replace("IIII", "IV");
+
   console.log(result);
   return  result ;
 }
