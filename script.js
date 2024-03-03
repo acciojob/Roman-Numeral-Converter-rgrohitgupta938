@@ -19,7 +19,9 @@ function convertToRoman(num) {
   }
 	result = result.replace("IIII", "IV")
                  .replace("VIIII", "IX")
+                 .replace("XXXX", "XL")
                  .replace("LXXXX", "XC")
+                 .replace("CCCC", "CD")
                  .replace("DCCCC", "CM");
   console.log(result);
   return  result ;
