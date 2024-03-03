@@ -17,6 +17,10 @@ function convertToRoman(num) {
       num -= value[1];
     }
   }
+	result = result.replace("IIII", "IV")
+                 .replace("VIIII", "IX")
+                 .replace("LXXXX", "XC")
+                 .replace("DCCCC", "CM");
   console.log(result);
   return  result ;
 }
